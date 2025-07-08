@@ -8,7 +8,7 @@ import Features from './pages/Features';
 import HowItWorks from './pages/HowItWorks';
 import About from './pages/About';
 import Contact from './pages/Contact';
-import ApiDemo from './components/ApiDemo';
+import Dashboard from './pages/Dashboard';
 
 const appStyle: React.CSSProperties = {
   fontFamily: "'Inter', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif",
@@ -31,8 +31,8 @@ function App() {
             <Route path="/how-it-works" element={<HowItWorks />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/dashboard" element={<Dashboard />} />
           </Routes>
-          <ApiDemo />
         </main>
         <Footer />
       </div>

@@ -14,6 +14,7 @@ export default function Navbar() {
     { name: "How It Works", href: "/how-it-works" },
     { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
+    { name: "Dashboard", href: "/dashboard" },
   ]
 
   const isActive = (path: string) => location.pathname === path
@@ -25,7 +26,7 @@ export default function Navbar() {
           <div className="flex items-center">
             <Link to="/" className="flex items-center space-x-2">
               <Receipt className="h-8 w-8 text-blue-600" />
-              <span className="font-bold text-xl text-gray-900">ReceiptAI</span>
+              <span className="font-bold text-xl text-gray-900">Raseed</span>
             </Link>
           </div>
 
