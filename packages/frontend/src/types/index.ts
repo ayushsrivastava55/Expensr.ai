@@ -23,3 +23,19 @@ export interface ApiResponse<T> {
   message?: string;
   error?: string;
 }
+
+// --- Receipt Types ---
+
+export interface ReceiptItem {
+  name: string;
+  qty: number;
+  price: number;
+}
+
+export interface ParsedReceipt {
+  store: string;
+  date: string;
+  items: ReceiptItem[];
+  tax: number | null;
+  total: number;
+}

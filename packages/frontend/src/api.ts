@@ -1,4 +1,4 @@
-import type { ApiResponse, Expense, AnalyticsData } from './types';
+import type { ApiResponse, Expense, AnalyticsData, ParsedReceipt } from './types';
 import { mockExpenses, mockAnalyticsData } from './data/mockData';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:8000/api';
@@ -53,13 +53,36 @@ export const apiService = {
     return apiRequest<AnalyticsData>('/analytics/summary', mockAnalyticsData, 1500);
   },
 
-  uploadReceipt: async (file: File): Promise<ApiResponse<{ message: string }>> => {
-    console.log(`[API Service] Faking upload for file: ${file.name}`);
-    await sleep(2000); // Simulate upload time
-    return {
-      success: true,
-      data: { message: `File '${file.name}' uploaded successfully.` },
-    };
+  uploadReceipt: async (file: File): Promise<ApiResponse<ParsedReceipt>> => {
+    const formData = new FormData();
+    formData.append('file', file);
+
+    try {
+      const response = await fetch(`${API_BASE_URL}/receipts/upload`, {
+        method: 'POST',
+        body: formData,
+        // Note: Don't set 'Content-Type' header manually for multipart/form-data.
+        // The browser will do it automatically with the correct boundary.
+      });
+
+      const responseData = await response.json();
+
+      if (!response.ok) {
+        // FastAPI validation errors or other HTTPExceptions will land here
+        const errorDetail = responseData.detail || 'Upload failed due to a server error.';
+        throw new Error(errorDetail);
+      }
+
+      return { success: true, data: responseData };
+
+    } catch (error) {
+      logError('uploadReceipt', error);
+      return {
+        success: false,
+        data: null as unknown as ParsedReceipt, // Set data to null in case of error
+        error: error instanceof Error ? error.message : 'An unknown network error occurred.',
+      };
+    }
   },
 
   postQuery: (query: string): Promise<ApiResponse<{ response: string }>> => {
