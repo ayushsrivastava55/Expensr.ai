@@ -1,0 +1,63 @@
+{
+  "color": {
+    "background": { "$type": "color", "$value": "#0B0E13" },
+    "surface": { "$type": "color", "$value": "#181C23" },
+    "primary": { "$type": "color", "$value": "#5B8CFF" },
+    "accent": { "$type": "color", "$value": "#FFD600" },
+    "text": {
+      "primary": { "$type": "color", "$value": "#F3F4F6" },
+      "secondary": { "$type": "color", "$value": "#A1A6B2" }
+    },
+    "border": { "$type": "color", "$value": "#232834" },
+    "success": { "$type": "color", "$value": "#2ED47A" },
+    "warning": { "$type": "color", "$value": "#FFD600" },
+    "error": { "$type": "color", "$value": "#FF5C5C" }
+  },
+  "radius": {
+    "sm": { "$type": "dimension", "$value": "4px" },
+    "md": { "$type": "dimension", "$value": "8px" },
+    "lg": { "$type": "dimension", "$value": "16px" },
+    "full": { "$type": "dimension", "$value": "9999px" }
+  },
+  "font": {
+    "family": {
+      "primary": {
+        "$type": "fontFamily",
+        "$value": "'Inter', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif"
+      }
+    },
+    "weight": {
+      "regular": { "$type": "fontWeight", "$value": "400" },
+      "medium": { "$type": "fontWeight", "$value": "500" },
+      "bold": { "$type": "fontWeight", "$value": "700" }
+    },
+    "size": {
+      "xs": { "$type": "dimension", "$value": "12px" },
+      "sm": { "$type": "dimension", "$value": "14px" },
+      "md": { "$type": "dimension", "$value": "16px" },
+      "lg": { "$type": "dimension", "$value": "20px" },
+      "xl": { "$type": "dimension", "$value": "32px" },
+      "xxl": { "$type": "dimension", "$value": "48px" }
+    }
+  },
+  "space": {
+    "xxs": { "$type": "dimension", "$value": "4px" },
+    "xs": { "$type": "dimension", "$value": "8px" },
+    "sm": { "$type": "dimension", "$value": "12px" },
+    "md": { "$type": "dimension", "$value": "16px" },
+    "lg": { "$type": "dimension", "$value": "24px" },
+    "xl": { "$type": "dimension", "$value": "32px" },
+    "xxl": { "$type": "dimension", "$value": "40px" },
+    "xxxl": { "$type": "dimension", "$value": "64px" }
+  },
+  "shadow": {
+    "card": {
+      "$type": "shadow",
+      "$value": "0 4px 24px rgba(0,0,0,0.24)"
+    },
+    "button": {
+      "$type": "shadow",
+      "$value": "0 2px 8px rgba(0,0,0,0.12)"
+    }
+  }
+} 
